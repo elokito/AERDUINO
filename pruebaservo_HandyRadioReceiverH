@@ -1,0 +1,35 @@
+// revisión ErnestoGIM 22/02/2016
+// Scott Camarena 
+// October 2013
+// Hobby Radio Receiver Class Example
+//=======================================================
+
+#include "HobbyRadioReceiver.h"               // ***********LIBRERIA /libraries/HobbyRadioRecerber.h
+                                              // Especifica el numero de canales a utilizar
+                                              //  Los siguientes pines son conectados a:
+HobbyRadioReceiver rec( 4, A0, A1, A2, A3 );  // ****LIBRERIA funcion 4 salidas utilizadas 0,1,2,3
+int val;  
+
+void setup()
+{
+  Serial.begin(9600);
+  Serial.print( "Num Channels: " );
+  Serial.println(rec.getNumChannels());        // ****LIBRERIA funcion rec.getNumChannels()
+}
+
+void loop()
+{
+  val = rec.check(1);                         //  *****LIBRERIA funcion rec.check(1) indica el valor 1=A0 2=A1 3=A2 4=A3
+  Serial.print( val );
+  Serial.print( "\t" );
+  val = rec.check(2);                         //  *****LIBRERIA funcion rec.check(1) indica el valor 1=A0 2=A1 3=A2 4=A3
+  Serial.print( val );
+  Serial.print( "\t" );
+  val = rec.check(3);                         //  *****LIBRERIA funcion rec.check(1) indica el valor 1=A0 2=A1 3=A2 4=A3
+  Serial.print( val );
+  Serial.print( "\t" );
+  val = rec.check(4);                         //  *****LIBRERIA funcion rec.check(1) indica el valor 1=A0 2=A1 3=A2 4=A3
+  Serial.print( val );
+  delay(50);
+  Serial.println( "\n\n\n\n\n\n\n\n\n\n\n" );
+}
